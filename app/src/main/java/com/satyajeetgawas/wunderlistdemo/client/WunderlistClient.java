@@ -64,7 +64,7 @@ public class WunderlistClient {
                 JSONArray jTasks = new JSONArray(listResponse);
                 String contents = "";
                 for(int j=0;j<jTasks.length();j++){
-                    contents += " "+jTasks.getJSONObject(j).getString("title");
+                    contents += "<br>"+jTasks.getJSONObject(j).getString("title");
                 }
 
                 String title = jArray.getJSONObject(i).getString("title");
