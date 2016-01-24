@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.satyajeetgawas.wunderlistdemo.client.WunderlistClient;
+import com.satyajeetgawas.wunderlistdemo.client.WunderlistLoginResultCallback;
 import com.satyajeetgawas.wunderlistdemo.client.WunderlistNote;
 import com.satyajeetgawas.wunderlistdemo.client.WunderlistSession;
 
@@ -19,19 +20,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DemoActivity extends ListActivity {
+public class DemoActivity extends ListActivity implements WunderlistLoginResultCallback {
     private List<String> listIds;
     private Map<String,WunderlistNote> mNotesMap;
     private WunderlistClient mWunderlistCLient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.demo_activity);
+
         listIds = new ArrayList<>();
         mNotesMap = new HashMap<>();
        if(WunderlistSession.getInstance()!=null && WunderlistSession.getInstance().isLoggedIn()) {
-            mWunderlistCLient = WunderlistSession.getInstance().getWunderlistClient();
-            new SyncTask().execute(this);
+            loadPage();
         }
         else{
             WunderlistSession.getInstance().login(this);
@@ -39,6 +39,10 @@ public class DemoActivity extends ListActivity {
 
     }
 
+    private void loadPage(){
+        mWunderlistCLient = WunderlistSession.getInstance().getWunderlistClient();
+        new SyncTask().execute(this);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -55,6 +59,8 @@ public class DemoActivity extends ListActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
+            WunderlistSession.getInstance().logout();
+            WunderlistSession.getInstance().login(this);
             return true;
         }
 
@@ -88,5 +94,11 @@ public class DemoActivity extends ListActivity {
         setListAdapter(new ArrayAdapter<String>(this, R.layout.list_view,items));
         ListView listView = getListView();
         listView.setTextFilterEnabled(true);
+    }
+
+    @Override
+    public void loginResult(boolean result) {
+        listIds.clear();
+        loadPage();
     }
 }
