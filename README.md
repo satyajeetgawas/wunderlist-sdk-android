@@ -20,11 +20,13 @@ new WunderlistSession.Builder(this).
                 build(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
 ```
 
+##Access Notes using Client
 The Wunderlist client gives access to the user profile as well as list of user notes. The client can be accessed as below
 ```java
 WunderlistSession.getInstance().getWunderlistClient();
 ```
 
+##Screenshots
 The login screen is shown below
 
 
