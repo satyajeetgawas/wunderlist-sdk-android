@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 
 
 /**
- * Created by satyajeet on 11/20/2015.
+ * Creates the activity that loads the login page using a web view
  */
 public class LoginPageActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;

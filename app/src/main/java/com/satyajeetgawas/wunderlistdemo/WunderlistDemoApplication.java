@@ -14,6 +14,7 @@ public class WunderlistDemoApplication extends Application {
     @Override
     public void onCreate(){
         super.onCreate();
+        //Build the wundelist session
         new WunderlistSession.Builder(this).
                 build(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
     }
