@@ -30,4 +30,7 @@ WunderlistSession.getInstance().getWunderlistClient();
 The login screen is shown below
 
 
+![alt tag](https://github.com/satyajeetgawas/wunderlist-sdk-android/blob/master/Screenshot_1.png)
+
+
 
