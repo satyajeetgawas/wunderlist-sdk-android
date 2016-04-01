@@ -33,4 +33,6 @@ The login screen is shown below
 ![alt tag](https://github.com/satyajeetgawas/wunderlist-sdk-android/blob/master/Screenshot_1.png)
 
 
+I am working on this sdk and will update as per my availability. Currently it is able to access user notes. Will add code to create, update notes.  
+
 
