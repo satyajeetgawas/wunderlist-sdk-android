@@ -8,8 +8,8 @@ import com.satyajeetgawas.wunderlistdemo.client.WunderlistSession;
  * Created by HP M6 on 14-01-2016.
  */
 public class WunderlistDemoApplication extends Application {
-    public static final String CLIENT_ID = "29af49a0f2a719de533d";
-    public static final String CLIENT_SECRET = "4a405404731e6cf4ee5c0504eaf96173a148e1220dd3a4046edf78dae414";
+    public static final String CLIENT_ID = "YOUR_CLIENT_ID";
+    public static final String CLIENT_SECRET = "YOUR_CLIENT_SECRET";
     public static final String REDIRECT_URI = "http://fintaskanyplace.com";
     @Override
     public void onCreate(){
